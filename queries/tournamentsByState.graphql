@@ -1,0 +1,19 @@
+query TournamentsByState($perPage: Int, $state: String! $numEntrants: Int) {
+  tournaments(query: {
+    perPage: $perPage
+    filter: {
+      addrState: $state
+      isEventOnline: false
+    }
+  }) {
+    nodes {
+      id
+      name
+      addrState
+    }
+  }
+},
+{
+  "perPage": 10,
+  "state": "KS"
+}
